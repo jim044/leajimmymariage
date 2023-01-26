@@ -36,8 +36,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/app/map/runtime.js",
-              "src/app/map/2fc7bd0a8fe03f40@203.js"
             ]
           },
           "configurations": {

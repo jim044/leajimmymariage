@@ -8,7 +8,7 @@ html`<div id="map" style="width: 100%;"></div>`
 )}
 
 function _world_json(FileAttachment){return(
-FileAttachment("./assets/world.json")
+FileAttachment("../world.json")
 )}
 
 async function _4(d3,world_json)
@@ -97,11 +97,12 @@ function _d3(require){return(
 require("https://d3js.org/d3.v4.min.js")
 )}
 
-export default function define(runtime, observer) {
+
+function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["world.json", {url: new URL("./files/cbb0b433d100be8f4c48e19de6f0702d83c76df3def6897d7a4ccdb48d2f5f039bc3ae1141dd1005c253ca13c506f5824ae294f4549e5af914d0e3cb467bd8b0.json", import.meta.url), mimeType: "application/json", toString}]
+    ["world.json", {url: new URL("../world.json"), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);

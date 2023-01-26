@@ -2990,9 +2990,3 @@ Object.defineProperties(Runtime.prototype, {
         configurable: !0
     }
 });
-export {
-    Inspector,
-    Library,
-    Runtime,
-    RuntimeError
-};

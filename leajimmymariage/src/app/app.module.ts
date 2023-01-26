@@ -12,13 +12,14 @@ import { FormsModule } from "@angular/forms";
 import { TimelineModule } from "primeng/timeline";
 import { CardModule } from "primeng/card";
 import { MapComponent } from './map/map.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimelineComponent,
-    MapComponent
+    MapComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -26,6 +27,7 @@ import { MapComponent } from './map/map.component';
     TimelineModule,
     CardModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
