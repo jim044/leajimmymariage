@@ -11,6 +11,7 @@ export class EarthGlobeDirective implements OnInit {
 
   canvas = d3.select(this.elRef.nativeElement);
   context = this.canvas.node().getContext('2d')
+  
 
   projection = d3.geoOrthographic().precision(0.1);
   graticule = d3.geoGraticule10()
@@ -30,9 +31,9 @@ export class EarthGlobeDirective implements OnInit {
   width: any;
   height: any;
 
-  scaleFactor = 0.7;
+  scaleFactor = 0.8;
   degPerSec = 6;
-  rotationDelay = 500;
+  rotationDelay = 5000;
   water = {
     type: 'Sphere'
   };
@@ -50,6 +51,7 @@ export class EarthGlobeDirective implements OnInit {
   constructor(private elRef: ElementRef) { }
 
   ngOnInit() {
+
     tooltipDOMElement = document.getElementById('tooltip');
     this.canvas
       .call(d3.drag()
@@ -57,7 +59,11 @@ export class EarthGlobeDirective implements OnInit {
         .on('drag', this.dragged)
         .on('end', this.dragended)
       )
-      .on('mousemove', this.mousemove)
+      .call(d3.zoom()
+      .scaleExtent([1, 8])
+      .on("zoom", () => this.zoomed()))
+
+      
     // .on('click', selectCountry);
 
     this.loadData((world: any, cList: any) => {
@@ -117,6 +123,21 @@ export class EarthGlobeDirective implements OnInit {
     let countryName = findCountry ? findCountry.name : '';
 
     return countryName;
+  }
+
+  zoomed = () => {
+    let transform = d3.event.transform;
+    const r = 1.5;
+
+    this.context.save();
+    this.context.clearRect(0, 0, this.width, this.height);
+    this.context.translate(transform.x, transform.y);
+    this.context.scale(transform.k, transform.k);
+    this.context.beginPath();
+    this.render();
+    this.context.fill();
+    this.context.restore();
+
   }
 
   dragstarted = () => {
