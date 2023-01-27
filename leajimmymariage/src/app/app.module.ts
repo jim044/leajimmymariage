@@ -13,13 +13,16 @@ import { TimelineModule } from "primeng/timeline";
 import { CardModule } from "primeng/card";
 import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TestComponent } from './test/test.component';
+import { EarthGlobeDirective } from '../assets/js/earth-globe.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimelineComponent,
     MapComponent,
-    
+    TestComponent,
+    EarthGlobeDirective
   ],
   imports: [
     BrowserModule,
