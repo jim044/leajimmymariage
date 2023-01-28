@@ -33,7 +33,7 @@ export class EarthGlobeDirective implements OnInit {
 
   scaleFactor = 0.8;
   degPerSec = 6;
-  rotationDelay = 5000;
+  rotationDelay = 3000;
   water = {
     type: 'Sphere'
   };
@@ -60,12 +60,9 @@ export class EarthGlobeDirective implements OnInit {
         .on('end', this.dragended)
       )
       .call(d3.zoom()
-      .scaleExtent([1, 8])
-      .on("zoom", () => this.zoomed()))
-
+      .scaleExtent([1, 50])
+      .on("zoom", () => this.zoomed()));
       
-    // .on('click', selectCountry);
-
     this.loadData((world: any, cList: any) => {
       this.land = topojson.feature(world, world.objects.land);
       this.countries = topojson.feature(world, world.objects.countries);
@@ -87,24 +84,6 @@ export class EarthGlobeDirective implements OnInit {
         })
       })
     })
-  }
-
-  mousemove = () => {
-    let c = this.getCountry(this.canvas.node());
-    if (!c) {
-      if (this.currentCountry) {
-        this.leave(this.currentCountry);
-        this.currentCountry = undefined;
-        this.render();
-      }
-      return;
-    }
-    if (c === this.currentCountry) {
-      return;
-    }
-    this.currentCountry = c;
-    this.render();
-    this.enter(c);
   }
 
   enter(country: any) {
@@ -136,7 +115,8 @@ export class EarthGlobeDirective implements OnInit {
     this.context.beginPath();
     this.render();
     this.context.fill();
-    this.context.restore();
+    this.context.save();
+    this.context.restore(); 
 
   }
 
@@ -156,7 +136,7 @@ export class EarthGlobeDirective implements OnInit {
   };
 
   dragended = () => {
-    this.startRotation(this.rotationDelay);
+   this.startRotation(this.rotationDelay);
   }
 
   scale = () => {
