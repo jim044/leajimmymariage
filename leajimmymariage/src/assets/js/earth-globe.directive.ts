@@ -1,4 +1,5 @@
 import { Directive, OnInit, ElementRef } from '@angular/core';
+import * as GeoJSON from 'geojson';
 
 declare let d3: any;
 declare let versor: any;
@@ -25,6 +26,7 @@ export class EarthGlobeDirective implements OnInit {
 
   land: any;
   countries: any;
+  placeList: any;
   countryList: any;
   currentCountry: any;
 
@@ -42,6 +44,7 @@ export class EarthGlobeDirective implements OnInit {
   colorGraticule = '#ccc';
   colorCountry = '#c48e5a';
   colorCountryBorder = '#393b41';
+  colorMarkers = '#FF5733';
 
   now: any;
   diff: any;
@@ -63,15 +66,23 @@ export class EarthGlobeDirective implements OnInit {
       .scaleExtent([1, 50])
       .on("zoom", () => this.zoomed()));
       
-    this.loadData((world: any, cList: any) => {
+    this.loadData((world: any, cList: any, places: any) => {
       this.land = topojson.feature(world, world.objects.land);
       this.countries = topojson.feature(world, world.objects.countries);
+      this.placeList = topojson.feature(places, places.objects.places),
+
+      console.log(this.placeList)
+      console.log(this.land)
+      console.log(this.countries)
+      
       this.countryList = cList;
 
       window.addEventListener('resize', this.scale);
       this.scale();
       this.autorotate = d3.timer(this.rotate);
     })
+
+
   }
 
   getCountry(event: any) {
@@ -106,8 +117,8 @@ export class EarthGlobeDirective implements OnInit {
 
   zoomed = () => {
     let transform = d3.event.transform;
+        
     const r = 1.5;
-
     this.context.save();
     this.context.clearRect(0, 0, this.width, this.height);
     this.context.translate(transform.x, transform.y);
@@ -115,8 +126,7 @@ export class EarthGlobeDirective implements OnInit {
     this.context.beginPath();
     this.render();
     this.context.fill();
-    this.context.save();
-    this.context.restore(); 
+    this.context.restore();
 
   }
 
@@ -156,16 +166,13 @@ export class EarthGlobeDirective implements OnInit {
     this.fill(this.land, this.colorLand);
     this.stroke(this.land, this.colorCountryBorder);
 
-    /* Draw borders for each country */
+    this.fill(this.placeList, this.colorMarkers);
+
+
     this.countries.features.forEach((country: any) => {
       this.stroke(country, this.colorCountryBorder);
     });
-
-
-    if (this.currentCountry) {
-      this.fill(this.currentCountry, this.colorCountry);
-      this.stroke(this.currentCountry, this.colorCountryBorder);
-    }
+    
   }
 
   fill(obj: any, color: any) {
@@ -207,7 +214,11 @@ export class EarthGlobeDirective implements OnInit {
       if (error) throw error;
       d3.tsv('https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-country-names.tsv', function (error: any, countries: any) {
         if (error) throw error;
-        cb(world, countries);
+        d3.json('../assets/world-markers.geojson', function (error: any, places: any) {
+          if (error) throw error;  
+          cb(world, countries, places);
+        })
+        
       })
     })
   }
