@@ -53,6 +53,27 @@
                "properties":{
                   "name":"Gatineau"
                }
+            },
+            {
+               "type":"Point",
+               "coordinates":[
+                  3.0300793,
+                  42.5490447
+               ],
+               "properties":{
+                  "name":"Argelès-sur-mer"
+               }
+            },
+            {
+               "type":"Point",
+               "coordinates":[
+                  7.4514512,
+                  46.9482713
+               ],
+               "properties":{
+                  "name":"Berne",
+                  "marker-symbol": "star"
+               }
             }
          ]
       }

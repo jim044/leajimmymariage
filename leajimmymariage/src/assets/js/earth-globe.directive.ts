@@ -33,14 +33,14 @@ export class EarthGlobeDirective implements OnInit {
   width: any;
   height: any;
 
-  scaleFactor = 0.8;
+  scaleFactor = 1;
   degPerSec = 6;
   rotationDelay = 3000;
   water = {
     type: 'Sphere'
   };
-  colorWater = '#505467';
-  colorLand = '#dbb998';
+  colorWater = '#4f4cb0';
+  colorLand = '#d8c596';
   colorGraticule = '#ccc';
   colorCountry = '#c48e5a';
   colorCountryBorder = '#393b41';
@@ -61,19 +61,15 @@ export class EarthGlobeDirective implements OnInit {
         .on('start', this.dragstarted)
         .on('drag', this.dragged)
         .on('end', this.dragended)
-      )
-      .call(d3.zoom()
+      );
+      /* .call(d3.zoom()
       .scaleExtent([1, 50])
-      .on("zoom", () => this.zoomed()));
+      .on("zoom", () => this.zoomed())); */
       
     this.loadData((world: any, cList: any, places: any) => {
       this.land = topojson.feature(world, world.objects.land);
       this.countries = topojson.feature(world, world.objects.countries);
       this.placeList = topojson.feature(places, places.objects.places),
-
-      console.log(this.placeList)
-      console.log(this.land)
-      console.log(this.countries)
       
       this.countryList = cList;
 
@@ -150,8 +146,9 @@ export class EarthGlobeDirective implements OnInit {
   }
 
   scale = () => {
-    this.width = document.documentElement.clientWidth;
-    this.height = document.documentElement.clientHeight;
+    
+    this.width = document.documentElement.clientWidth / 2;
+    this.height = document.documentElement.clientHeight / 2;
     this.canvas.attr('width', this.width).attr('height', this.height);
     this.projection
       .scale((this.scaleFactor * Math.min(this.width, this.height)) / 2)
@@ -166,8 +163,7 @@ export class EarthGlobeDirective implements OnInit {
     this.fill(this.land, this.colorLand);
     this.stroke(this.land, this.colorCountryBorder);
 
-    this.fill(this.placeList, this.colorMarkers);
-
+    this.fillMarkers(this.placeList, this.colorMarkers);
 
     this.countries.features.forEach((country: any) => {
       this.stroke(country, this.colorCountryBorder);
@@ -180,6 +176,13 @@ export class EarthGlobeDirective implements OnInit {
     this.path(obj)
     this.context.fillStyle = color
     this.context.fill()
+  }
+
+  fillMarkers(obj: any, color: any) {
+    this.context.beginPath();
+    this.path(obj);
+    this.context.fillStyle = color;
+    this.context.fill();
   }
 
   stroke(obj: any, color: any) {

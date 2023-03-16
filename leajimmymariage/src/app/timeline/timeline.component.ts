@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrimeIcons } from 'primeng/api';
 
 @Component({
   selector: 'app-timeline',
@@ -12,17 +13,11 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
     this.arr = [
       {
-        status: "2011",
-      },
-      {
-        status: "2013",
-      },
-      {
-        status: "Time3",
-      },
-      {
-        status: "Time4",
-      },
+        status: "Mont Saint-Michel",
+        date: "2013",
+        icon: PrimeIcons.CAR,
+        image: "../../assets/Mont-Saint-Michel.jpg"
+      }
     ];
   }
 

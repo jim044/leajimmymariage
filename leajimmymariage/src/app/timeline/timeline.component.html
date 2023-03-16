@@ -1,7 +1,17 @@
-<h6>Top Align</h6>
 <p-timeline [value]="arr" layout="horizontal" align="top">
-  <ng-template pTemplate="content" let-event> 
+<!--   <ng-template pTemplate="content" let-event> 
     {{event.status}} 
+  </ng-template> -->
+
+  <ng-template pTemplate="marker" let-event>
+    <span class="custom-marker p-shadow-2">
+              <i [ngClass]="event.icon"></i>
+          </span>
+  </ng-template>
+  <ng-template pTemplate="content" let-event>
+    <p-card [header]="event.status" [subheader]="event.date">
+      <img _ngcontent-ssh-c94="" width="200" class="shadow-2 ng-star-inserted" [src]="event.image" alt="undefined">
+    </p-card>
   </ng-template>
 </p-timeline>
   
