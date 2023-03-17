@@ -15,8 +15,20 @@ export class TimelineComponent implements OnInit {
       {
         status: "Mont Saint-Michel",
         date: "2013",
+        icon: PrimeIcons.HEART_FILL,
+        image: "/assets/images/Mont-Saint-Michel.jpg"
+      },
+      {
+        status: "Londres",
+        date: "2015",
         icon: PrimeIcons.CAR,
-        image: "../../assets/Mont-Saint-Michel.jpg"
+        image: "/assets/images/2015 Royaume Uni avec Marlou et Tit.jpg"
+      },
+      {
+        status: "Saint-Malo",
+        date: "2015",
+        icon: PrimeIcons.CAR,
+        image: "/assets/images/2015 Saint Malo avec Titie.jpg"
       }
     ];
   }

@@ -39,8 +39,8 @@ export class EarthGlobeDirective implements OnInit {
   water = {
     type: 'Sphere'
   };
-  colorWater = '#4f4cb0';
-  colorLand = '#d8c596';
+  colorWater = '#495173';
+  colorLand = '#dbb998';
   colorGraticule = '#ccc';
   colorCountry = '#c48e5a';
   colorCountryBorder = '#393b41';
