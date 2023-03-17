@@ -11,6 +11,8 @@ import { FormsModule } from "@angular/forms";
   
 import { TimelineModule } from "primeng/timeline";
 import { CardModule } from "primeng/card";
+import { RippleModule } from 'primeng/ripple';
+import { ButtonModule } from 'primeng/button';
 import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
@@ -31,6 +33,8 @@ import { CountdowntimerComponent } from './countdowntimer/countdowntimer.compone
     AppRoutingModule,
     TimelineModule,
     CardModule,
+    RippleModule,
+    ButtonModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],

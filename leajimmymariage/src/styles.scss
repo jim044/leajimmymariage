@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-.p-component {
-    max-width: 300px !important;
-    max-height: 300px !important;
+.p-timeline-event-content{
+    margin-bottom: 2%;
+}
+
+.p-button-success{
+    background-color: #495173 !important;
+    border: 1px solid #495173 !important;
+}
+
+.p-timeline-event{
+    margin-top: 2% !important;
 }
