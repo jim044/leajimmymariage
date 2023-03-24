@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
 import { EarthGlobeDirective } from '../assets/js/earth-globe.directive';
 import { CountdowntimerComponent } from './countdowntimer/countdowntimer.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CountdowntimerComponent } from './countdowntimer/countdowntimer.compone
     MapComponent,
     TestComponent,
     EarthGlobeDirective,
-    CountdowntimerComponent
+    CountdowntimerComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

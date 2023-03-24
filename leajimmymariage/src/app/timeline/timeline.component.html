@@ -1,13 +1,11 @@
-<p-timeline [value]="arr" layout="vertical" align="left" styleClass="customized-timeline">
+
+
+<p-timeline [value]="events" layout="horizontal" align="top" styleClass="customized-timeline">
   <ng-template pTemplate="marker" let-event>
     <span class="custom-marker p-shadow-2">
-        <button pButton pRipple type="button" label="{{event.date}}" class="p-button-success" (click)="selecteDateTimeline(event.date)"></button>
+        <button pButton pRipple type="button" label="{{event}}" class="p-button-success" (click)="selecteDateTimeline(event)"></button>
     </span>
   </ng-template>
-  <ng-template pTemplate="content" let-event>
-    <p-card *ngIf="event.date == dateSelected" class="pCard" [header]="event.status" [subheader]="event.date">
-      <img _ngcontent-ssh-c94="" width="200" class="shadow-2 ng-star-inserted" [src]="event.image" alt="undefined" referrerpolicy="no-referrer">
-    </p-card>
-  </ng-template>
 </p-timeline>
+
   

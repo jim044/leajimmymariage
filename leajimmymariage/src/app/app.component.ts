@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -9,5 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'leajimmymariage';
 
+  @Input() dateSelection = '';
+
+  addDateEvent(dateEvent: any){
+    this.dateSelection = dateEvent;
+  }
   
 }
