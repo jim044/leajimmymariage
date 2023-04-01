@@ -1,5 +1,5 @@
 <ng-template ngFor let-season [ngForOf]="data" let-i=index pTemplate="content" let-event>
     <p-card *ngIf="event.date == dateSelected" class="pCard" [header]="event.status" [subheader]="event.date">
-      <img _ngcontent-ssh-c94="" class="imgTravel" [src]="event.image" alt="undefined" referrerpolicy="no-referrer">
+      <img _ngcontent-ssh-c94="" height="150" class="imgTravel" [src]="event.image" alt="undefined" referrerpolicy="no-referrer">
     </p-card>
   </ng-template>
