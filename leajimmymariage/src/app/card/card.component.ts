@@ -153,6 +153,7 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   openDialog(event: any): void {
+    this.dialog.closeAll();
     const dialogRef = this.dialog.open(ImagecarouselComponent, {
       data: event.image,
     });
@@ -160,6 +161,7 @@ export class CardComponent implements OnInit, OnDestroy {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+
   }
 
 }
