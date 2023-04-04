@@ -17,6 +17,11 @@
     padding-right: 2% !important;
 }
 
-.p-card.p-component{
-    height: 75% !important;
+.p-timeline-event-connector{
+    background: #dee2e6;
+    width: 100%;
+    height: 10px !important;
+    //margin: auto;
+    -webkit-clip-path: polygon(0% 50%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 50%);
+    clip-path: polygon(0% 50%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 50%);
 }

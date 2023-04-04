@@ -76,12 +76,6 @@ export class CardComponent implements OnInit, OnDestroy {
         status: "Moraira",
         date: "2015",
         icon: PrimeIcons.CAR,
-        image: "https://lh3.googleusercontent.com/pw/AMWts8AvF2rQ2UeJqXR9yRkEkwoAqK8BPOCXVri0sZx_d9K0PVvIFV5t48H_bRqaemQkDRDhLKz5YmsJEVbX-2MMPT-MPfGukL77S1rB4UYqNfv-jioLm9eIgW_CrTbCHGdVibowP9GdgHVPFVJ8PnMYZsPm6w=w625-h937-no?authuser=0"
-      },
-      {
-        status: "Moraira",
-        date: "2015",
-        icon: PrimeIcons.CAR,
         image: "https://lh3.googleusercontent.com/pw/AMWts8AsY_I7ht1SPuG7Ta-AHBWLmhOnd2_3P77yvbYoTKsTomJFMEmIdfP3Et49BzS9VhexUpB4YDGVo1-mvhjF03yo7yljIJ9Zm2s7-nK3rg_pX2Fy4cEG0lkaLsh-Wq3AQ8cA7jyjrMejduDhFvaJ1P8Jog=w1406-h937-no?authuser=0"
       },
       {
@@ -115,12 +109,6 @@ export class CardComponent implements OnInit, OnDestroy {
         image: "https://lh3.googleusercontent.com/pw/AMWts8C_Mk2M5CJdm3aC8nmK0Ctky5Tx2wKPwrV1KsWsHSGlsk0S-BHYf1s4SVnRw6fg--PjJ4ko0xC5CVO9KO0XmFtL1-5eBxU__iSAbTpLF_XM5xlfdiiXWi2Y6C6Sv77LTY5WSJg04_5iCg3u2OweOg0vWA=w625-h937-no?authuser=0"
       },
       {
-        status: "Digne-les-Bains",
-        date: "2018",
-        icon: PrimeIcons.CAR,
-        image: "https://lh3.googleusercontent.com/pw/AMWts8AyVRP7dr2-lffuteMG1gcCzkS_DXKLMy6qCiOUpCL9sp0gJkbG3Q7CDCe412QnDhsz3XCbhQHcD-LlJIwIqmE9PVLsPsYdX4NNCFaM0IrnygwywJhK4UKrB47u8krSSKYwvCotnJDUaWS83cHLHqiq8A=w1406-h937-no?authuser=0"
-      },
-      {
         status: "Trolltunga - Norvège",
         date: "2018",
         icon: PrimeIcons.CAR,
@@ -137,7 +125,28 @@ export class CardComponent implements OnInit, OnDestroy {
         date: "2018",
         icon: PrimeIcons.CAR,
         image: "https://lh3.googleusercontent.com/pw/AMWts8CG5mtGoyb399HbTfru7SkUYjCsEdVrPchQsuNsaf7DxmneJcwCK_uN5Y4Jszxh4dm5bMerDM_eGe4v7t6ZZepfG965wNmAoqMD2z9Bw01fmrD0MYqM3qo3EZFsN-kt3wkcDThUIkB-EOm-NEKKnPFkUQ=w1406-h937-no?authuser=0"
-      },
+      }
+      ,
+      {
+        status: "Taj Mahal - Inde",
+        date: "2019",
+        icon: PrimeIcons.CAR,
+        image: "https://lh3.googleusercontent.com/pw/AMWts8DH_LfS4yQrXhGmdG41Bsa98Jazy95UqyPAJEnZwGZA-5PSEc5okZtlk_u-0UkIiplTzDHQ9Pz6P5gV1JY1htZa2Dz4PMkGvSoV57C2zGBta6CmhZJrUyiQKcROIYRDtqHmMYc-WuWc0uP0nsZds9i0yA=w1154-h866-s-no"
+      }
+      ,
+      {
+        status: "Angkor Vat - Cambodge",
+        date: "2019",
+        icon: PrimeIcons.CAR,
+        image: "https://lh3.googleusercontent.com/pw/AMWts8Dh-8auDJKXyTjzE1zEAdITXyTIYVEQLsAmRIAmujjUJL3B0uIR-xV6WXNWHKpNdjeoWvIuALkr3lTtSD5oHEV4nVBtDSFOj1yFizGvaRlKQ24i0C6ypFKeDEpROZFSbpJ-5F59-_4i0eorbTaN9GnehA=w1299-h866-s-no"
+      }
+      ,
+      {
+        status: "Désert de Gobi - Mongolie",
+        date: "2019",
+        icon: PrimeIcons.CAR,
+        image: "https://lh3.googleusercontent.com/pw/AMWts8C6tXFZMOMUAysWRzTS1uFltGIEXhR7TzulyFpbA0rBNZUQAj-Ikt8yHQ46dqIWf5ZQvM9cdp6V_wGQaYM15igrK8cnL1pqVxE4uZQQenzR4bhVEvNBk2haQHPP2m5DEcFAgjEVdCsCYLCtjBLxdw2mVg=w1299-h866-s-no"
+      }
     ];
   }
 
