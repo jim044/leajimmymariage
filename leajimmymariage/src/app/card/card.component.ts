@@ -2,6 +2,8 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { PrimeIcons, PrimeNGConfig } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { CardService } from '../service/card.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ImagecarouselComponent } from '../imagecarousel/imagecarousel.component';
 
 @Component({
   selector: 'app-card',
@@ -14,7 +16,7 @@ export class CardComponent implements OnInit, OnDestroy {
   data!: any[];
   cardServiceSubscirption!: Subscription;
 
-  constructor(private primengConfig: PrimeNGConfig, private cardService: CardService) {}
+  constructor(private primengConfig: PrimeNGConfig, private cardService: CardService, public dialog: MatDialog) {}
 
   ngOnDestroy(): void {
     this.cardServiceSubscirption.unsubscribe();
@@ -148,6 +150,16 @@ export class CardComponent implements OnInit, OnDestroy {
         image: "https://lh3.googleusercontent.com/pw/AMWts8C6tXFZMOMUAysWRzTS1uFltGIEXhR7TzulyFpbA0rBNZUQAj-Ikt8yHQ46dqIWf5ZQvM9cdp6V_wGQaYM15igrK8cnL1pqVxE4uZQQenzR4bhVEvNBk2haQHPP2m5DEcFAgjEVdCsCYLCtjBLxdw2mVg=w1299-h866-s-no"
       }
     ];
+  }
+
+  openDialog(event: any): void {
+    const dialogRef = this.dialog.open(ImagecarouselComponent, {
+      data: event.image,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

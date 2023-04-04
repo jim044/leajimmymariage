@@ -10,8 +10,7 @@ export class ImagecarouselComponent {
 
   constructor(
     public dialogRef: MatDialogRef<ImagecarouselComponent>,
-    @Inject(MAT_DIALOG_DATA) public imageCarousel: string
+    @Inject(MAT_DIALOG_DATA) public imageSelected: string
   ) {}
 
-  imageSelected! : any;
 }

@@ -20,7 +20,7 @@ import { EarthGlobeDirective } from '../assets/js/earth-globe.directive';
 import { CountdowntimerComponent } from './countdowntimer/countdowntimer.component';
 import { CardComponent } from './card/card.component';
 import { ImagecarouselComponent } from './imagecarousel/imagecarousel.component';
-import {MatDialogModule} from "@angular/material";
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,9 +31,10 @@ import {MatDialogModule} from "@angular/material";
     EarthGlobeDirective,
     CountdowntimerComponent,
     CardComponent,
-    ImagecarouselComponent
+    ImagecarouselComponent,
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     TimelineModule,
@@ -41,8 +42,7 @@ import {MatDialogModule} from "@angular/material";
     RippleModule,
     ButtonModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    MatDialogModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
